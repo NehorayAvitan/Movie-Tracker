@@ -1,0 +1,30 @@
+
+  
+  .container-data {
+    color: white;
+  }
+
+  
+.row {
+  margin-bottom: 15px; 
+}
+
+.user-logs {
+  margin-top: 20px;
+  color: white;
+}
+
+.log-entry {
+  background-color: #343a40; 
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  color: gray;
+  width: 60%;
+}
+
+.log-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

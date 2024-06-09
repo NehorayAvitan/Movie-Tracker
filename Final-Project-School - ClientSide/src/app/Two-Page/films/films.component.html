@@ -1,0 +1,86 @@
+<div class="films container">
+  <div class="movie-search-toolbar">
+    <form class="form-inline">
+<div class="form-group mr10">
+  <label for="searchTitle">Title:</label>
+  <input type="text" class="form-control choice-select" id="searchTitle" placeholder="Enter title" #inputTitle [disabled]="selectedValues.genreName || selectedValues.ratingName">
+</div>
+
+<div class="form-group mr10">
+  <label for="year" class="year-label">Year:</label>
+  <select id="year" name="year" class="form-control choice-select" #inputYear>
+      <option value="">Select Year</option>
+      <ng-container *ngFor="let year of years">
+          <option [value]="year">{{ year }}</option>
+      </ng-container>
+  </select>
+</div>
+
+<div class="form-group mr10">
+  <label for="genre" class="genre-label">Genre:</label>
+  <select id="genre" name="genre" class="form-control choice-select" #inputGenre [disabled]="selectedValues.title">
+      <option value="">Select Gener</option>
+        <option *ngFor="let genre of genres" [value]="genre.name">{{ genre.name }}</option>
+  </select>
+</div>
+
+<div class="form-group mr10">
+  <label for="rate" class="rate-label">Rating:</label>
+  <select id="rate" name="rate" class="form-control choice-select" #inputRate [disabled]="selectedValues.title">
+      <option value="">Select Rating</option>
+      <ng-container *ngFor="let rate of rates">
+          <option [value]="rate">{{ rate }}</option>
+      </ng-container>
+  </select>
+</div>
+
+<button type="submit" class="btn btn-dark-custom" (click)="searchMovies()">Search</button>
+
+        </form>
+  </div>
+</div>
+
+
+<div *ngIf="submited">
+  <ng-container *ngFor="let movieChunk of movies$ | async">
+    <div class="row">
+      <div class="col-md-2" *ngFor="let movie of movieChunk">
+        <a [routerLink]="" class="movie-link">
+          <div class="movie-poster-container">
+            <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" alt="Movie Poster" class="movie-poster">
+            <p class="movie-title">{{ movie.title }} ({{ movie.release_date | date:'yyyy' }})</p>
+            <div class="movie-options">
+              <button type="button" class="btn btn-default" title="View" (click)="addWatched(movie.id, 0)">
+                <i id="watched-icon-{{ movie.id }}" class="glyphicon glyphicon-eye-open" [style.color]="isMovieWatched(movie.id) ? 'yellow' : ''"></i>
+              </button>
+              <button type="button" class="btn btn-default" title="Add" (click)="addWatchList(movie.id)">
+                <i id="watchList-icon-{{ movie.id }}" class="glyphicon glyphicon-sunglasses" [style.color]="isMovieWatchList(movie.id) ? 'purple' : ''"></i>
+              </button>
+              <button type="button" class="btn btn-default" title="Options" (click)="selectMovie(movie)">
+                <i class="glyphicon glyphicon-option-horizontal"></i>
+              </button>
+            </div>
+          </div>
+        </a>
+        <app-film-options-dropdown 
+        *ngIf="selectedMovie === movie"
+        [movie]="movie"
+        [selectedMovieRating]="getMovieRating(movie.id)"
+        (closeOptions)="closeOptions()"
+        (addToList)="openAddMovieModal($event)"
+        (refreshWatchedMovies)="getWatchedMovies()">
+      </app-film-options-dropdown>
+
+      <app-add-movie-to-list-modal *ngIf="showAddMovieModal" [movie]="currentMovie" (closeModalEvent)="closeAddMovieModal()"></app-add-movie-to-list-modal>
+
+      </div>
+    </div>
+  </ng-container>
+  
+</div>
+
+
+
+
+
+

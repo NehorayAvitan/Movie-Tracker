@@ -1,0 +1,37 @@
+        <div class="row">
+            <div class="col-xs-12">
+              <h3 class="settings-header">Change password</h3>
+              <div class="form-group">
+                <label for="currentPassword" class="control-label label-tag">Current password:</label>
+                <input type="text" class="form-control input-tag" id="currentPassword" name="currentPassword">
+              </div>
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="form-group">
+                    <label for="new-password" class="control-label label-tag">New password:</label>
+                    <input type="text" class="form-control input-tag" id="new-password" name="new-password">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="form-group">
+                    <label for="confirm-new-password" class="control-label label-tag">Confirm new password:</label>
+                    <input type="text" class="form-control input-tag" id="confirm-new-password" name="confirm-new-password">
+                  </div>
+                </div>
+               </div>
+
+               <div class="row">
+                <div class="col-xs-12">
+                  <button type="button" class="btn btn-warning btn-yellow" (click)="changePassword()">CHANGE</button>
+                </div>
+              </div>
+
+              <div class="alert" #notificationElement [ngClass]="{ 'alert-success': success, 'alert-danger': error }" *ngIf="notificationMessage">
+                {{ notificationMessage }}
+            </div>
+
+            
+            </div>   
+        </div>

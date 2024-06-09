@@ -1,0 +1,41 @@
+<div class="list-details-container">
+    <div class="list-header">
+      <h1 class="list-title">{{ listName }}</h1>
+      <p class="list-description">{{ listDescription }}</p>
+      <button class="delete-button" (click)="deleteList()">Delete List</button>
+    </div>
+    <hr class="divider"/>
+    <div class="list-posters">
+      <div class="poster-row" *ngFor="let row of chunkedMovies; let rowIndex = index">
+        <div class="poster-item-wrapper" *ngFor="let movie of row; let posterIndex = index">
+          <div class="poster-item">
+            <img [src]="getPosterUrl(movie)" alt="Movie Poster"/>
+            <p *ngIf="movie.title" class="film-title">{{ movie.title }} ({{ movie.release_date | date:'yyyy' }})</p>
+            <div class="film-options" *ngIf="movie.title">
+              <button type="button" class="btn btn-default" title="View" (click)="addWatched(movie.id, 0)">
+                <i id="watched-icon-{{ movie.id }}" class="glyphicon glyphicon-eye-open" [style.color]="isMovieWatched(movie.id) ? 'yellow' : ''"></i>
+              </button>
+              <button type="button" class="btn btn-default" title="Add">
+                <i id="watchList-icon-{{movie.id}}" class="glyphicon glyphicon-sunglasses" [style.color]="isMovieWatchList(movie.id) ? 'purple' : ''"></i>
+              </button>
+              <button type="button" class="btn btn-default" title="Options" (click)="selectMovie(movie)">
+                <i class="glyphicon glyphicon-option-horizontal"></i>
+              </button>
+            </div>
+            <app-film-options-dropdown 
+            *ngIf="selectedMovie === movie"
+            [movie]="movie"
+            [selectedMovieRating]="getMovieRating(movie.id)"
+            (closeOptions)="closeOptions()"
+            (addToList)="openAddMovieModal($event)"
+            (refreshWatchedMovies)="getWatchedMovies()">
+          </app-film-options-dropdown>
+    
+          <app-add-movie-to-list-modal *ngIf="showAddMovieModal" [movie]="currentMovie" (closeModalEvent)="closeAddMovieModal()"></app-add-movie-to-list-modal>
+          </div>
+          <p class="poster-number">{{ rowIndex * 5 + posterIndex + 1 }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

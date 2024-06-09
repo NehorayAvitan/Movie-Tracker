@@ -1,0 +1,165 @@
+.container-data {
+  margin-top: 60px;
+}
+
+.favorite-films-title {
+  font-size: 24px;
+  color: gray;
+  
+}
+
+.favorite-films-line {
+  border: 1px solid #343a40;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.favorite-films-posters {
+  display: flex;
+  gap: 10px;
+}
+
+.film-poster {
+  width: 150px;
+  height: 225px;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #343a40;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.film-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.add-button {
+  font-size: 36px;
+  color: white;
+}
+
+.remove-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: gray;
+  color: black;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; /* Ensure there's no extra padding inside the button */
+}
+
+.glyphicon-remove {
+  font-size: 12px; 
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 60px;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background-color:  #343a40;
+  color: gray;
+  margin: auto;
+  padding: 20px;
+  width: 40%;
+  max-width: 600px;
+}
+
+.modal-content h2 {
+  color: gray;
+}
+
+.close {
+  color: gray;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.search-results {
+  margin-top: 20px;
+  max-height: 200px; /* Adjust height as needed */
+  overflow-y: auto; /* Add vertical scrollbar */
+  background-color: #343a40;
+  padding: 10px;
+}
+
+.search-results button {
+  display: block;
+  width: 100%;
+  background-color: #343a40;
+  color: white;
+  border: none;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.search-results button:hover {
+  background-color: gray;
+}
+
+.search-results hr {
+  border: 0;
+  height: 1px;
+  background: #ddd;
+  margin: 5px 0;
+}
+
+.search-result-item {
+  margin-bottom: 10px;
+}
+
+.directors {
+  margin-left: 10px;
+  color: #ccc;
+  font-size: 14px; 
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+}

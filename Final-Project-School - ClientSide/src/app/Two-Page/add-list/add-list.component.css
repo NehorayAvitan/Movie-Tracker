@@ -1,0 +1,156 @@
+.container {
+    margin-top: 100px;
+}
+
+h2 {
+    color: gray; /* Dark gray text color */
+}
+
+hr {
+    border-top: 1px solid #ccc; /* Light gray horizontal line */
+}
+
+.label-tag {
+    color: white; 
+    margin-top: 5px;
+}
+
+.label-tag + .form-control {
+    margin-top: 1px; /* Adjust spacing between label and input */
+}
+
+.input-first {
+    color: white;
+    background-color: #343a40; 
+}
+
+#description {
+    min-height: 150px; /* Set minimum height */
+}
+
+.btn-save {
+    background-color: yellow;
+    color: white;
+}
+
+.green-line {
+    border-top: 2px solid #343a40; 
+}
+
+.btn-cancel {
+    background-color: #343a40;
+    color: gray;
+}
+
+.btn-save, .btn-cancel {
+    font-weight: bold;
+}
+
+.label-add-film {
+    background-color: yellow;
+    padding: 5px 10px;
+    color: black;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.input-search {
+    background-color: #343a40;
+    color: white;
+    width: 300px; 
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-results {
+    margin-left: 110px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px; /* Adjust the width as needed */
+    max-height: 200px; /* Adjust the max-height as needed */
+    overflow-y: auto;
+    display: none; /* Initially hidden */
+}
+
+.search-results.show {
+    display: block; /* Show when there are search results */
+}
+
+.search-result-item {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.search-result-item:hover {
+    background-color: #f0f0f0;
+}
+
+.selected-movies-frame {
+    margin-top: 10px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    min-height: 100px; /* Adjust the min-height as needed */
+    background-color: none; 
+    display: flex;
+    flex-direction: column;
+}
+
+.empty-list-message {
+    color: #777;
+    text-align: center;
+    margin: auto;
+}
+
+.selected-movie-item {
+    display: flex;
+    align-items: center;
+    background-color: #343a40;
+    color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.movie-number-frame {
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.movie-number {
+    color: white;
+    font-weight: bold;
+}
+
+.movie-details {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.movie-poster {
+    width: 50px;
+    height: 75px;
+    margin-right: 10px;
+}
+
+.movie-title {
+    flex-grow: 1;
+}
+
+.remove-movie-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-left: auto;
+}

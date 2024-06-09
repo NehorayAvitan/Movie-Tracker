@@ -1,0 +1,126 @@
+
+  .user-info {
+    margin-bottom: 30px;
+    padding-right: 20px; 
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+  
+  .profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .username {
+    font-weight: bold;
+    font-size: 24px;
+    color: white;
+  }
+  
+  .content {
+    padding-top: 70px;
+  }
+  
+  .movie-stats {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  .stats-number {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+    color: white;
+  }
+  
+  .stats-name {
+    margin: 0;
+  }
+  
+  .btn-custom {
+    margin-top: -20px;
+    background-color: #343a40; 
+    color: #ffffff; 
+    transition: box-shadow 0.3s ease;
+    font-weight: bold;
+  }
+  
+  .btn-custom:hover {
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.5); 
+  }
+  
+  .location {
+    color: gray;
+    transition: color 0.3s; /* Add transition for smooth color change */
+  }
+  
+  .website {
+    color: gray;
+    text-decoration: none;
+    transition: color 0.3s; /* Add transition for smooth color change */ 
+  }
+  
+  .location:hover {
+    color: white; 
+  }
+  
+  .website:hover {
+    color: cornflowerblue;
+  }
+  
+  .location-website {
+    display: flex;
+    align-items: center;
+  }
+  
+  .location, .website {
+    margin-right: 10px; 
+  }
+  
+  .toolbar {
+    border: 2px solid #343a40;
+    border-radius: 5px;
+    padding: 1px 20px;
+    position: -webkit-sticky;
+    position: sticky;
+    margin-top: 20px;
+    width: auto;
+    z-index: 9999;
+    transform: translateY(-50%);
+  }
+  
+  .toolbar ul.nav-pills {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .toolbar ul.nav-pills li {
+    margin-right: 10px;
+  }
+  
+  .toolbar ul.nav-pills li:last-child {
+    margin-right: 0;
+  }
+  
+  .toolbar ul.nav-pills li a {
+    color: gray;
+  }
+  
+  .toolbar ul.nav-pills li.active a {
+    color: #ffffff;
+    background-color: transparent;
+  }
+  
+  .toolbar ul.nav-pills li a:hover {
+    background-color: transparent;
+    color: yellow;
+  }
+  
+  .toolbar ul.nav-pills li.active a:hover {
+    background-color: transparent;
+    color: #ffffff; /* Keep text color white on hover */
+  }

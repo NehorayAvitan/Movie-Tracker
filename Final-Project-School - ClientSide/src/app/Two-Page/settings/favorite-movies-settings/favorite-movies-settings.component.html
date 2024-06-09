@@ -1,0 +1,33 @@
+<div class="container-data">
+  <div class="col-xs-12 col-md-6">
+    <p class="favorite-films-title">Favorite Films</p>
+    <hr class="favorite-films-line">
+    <div class="favorite-films-posters">
+      <div *ngFor="let film of favoriteFilms; let i = index" class="film-poster">
+        <div *ngIf="!film.poster_path" (click)="openSearchModal(i)" class="add-button">+</div>
+        <img *ngIf="film.poster_path" [src]="'https://image.tmdb.org/t/p/w500/' + film.poster_path" alt="{{film.title}}">
+        <button *ngIf="film.poster_path" class="remove-button" (click)="removeMovieFromFavorite(film.id, i)"
+        ><i class="glyphicon glyphicon-remove"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" [ngClass]="{'show': showModal}" style="margin-top: 30px;">
+    <div class="modal-content">
+      <span class="close" (click)="closeSearchModal()">&times;</span>
+      <h2>Search for a movie</h2>
+      <input type="text" [(ngModel)]="searchQuery" (input)="searchMovies()" placeholder="Search for a movie...">
+      <div class="search-results">
+        <div *ngFor="let movie of searchResults" class="search-result-item">
+          <button (click)="addMovieToFavorite(movie, currentIndex)">
+            <span>{{ movie.title }} ({{ movie.release_date | date: 'yyyy' }})</span>
+            <span *ngIf="movie.directors && movie.directors.length" class="directors">
+            {{ movie.directors.join(', ') }}
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>

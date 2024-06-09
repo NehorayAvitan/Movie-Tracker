@@ -1,0 +1,66 @@
+.upload-photo {
+    margin-top: 30px;
+}
+
+.upload-photo h3 {
+    font-size: 20px;
+    color: white;
+}
+
+.upload-box {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.upload-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.upload-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.upload-label span {
+    font-size: 16px;
+    color: #ccc;
+}
+
+#file-input {
+    display: none;
+}
+
+.file-name {
+    margin-left: 10px;
+    font-size: 16px;
+    color: #666;
+}
+
+.btn-yellow {
+    margin-top: 20px;
+    background-color: yellow;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-yellow:hover {
+    background-color: #ffd700; /* Lighter shade of yellow on hover */
+}
+
+.settings-header {
+  color: gray; 
+  margin-top: 30px;
+}

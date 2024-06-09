@@ -1,0 +1,15 @@
+<div class="content">
+        <div class="container-data">
+            <div class="row">
+                <div class="user-logs">
+                    <h3>Activity Logs</h3>
+                    <div *ngFor="let log of logs" class="log-entry">
+                        <div class="log-content">
+                            <span>You {{ log.data }}</span>
+                            <span class="time-ago">{{ log.timestamp | timeAgo }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="container">
+    <h2>New List</h2>
+    <hr>
+    <form [formGroup]="listForm" (ngSubmit)="saveList()">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="listName" class="label-tag">Name:</label>
+            <input
+              type="text"
+              class="form-control input-first"
+              id="listName"
+              formControlName="listName"
+              placeholder="Enter list name"
+            >
+            <div *ngIf="listForm.get('listName').invalid && (listForm.get('listName').dirty || listForm.get('listName').touched || formSubmitted)" class="text-danger">
+              Name is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="visibility" class="label-tag">Who can view:</label>
+            <select
+              class="form-control input-first"
+              id="visibility"
+              formControlName="visibility"
+            >
+              <option value="public">Anyone (Public list)</option>
+              <option value="private">You (Private list)</option>
+            </select>
+            <div *ngIf="listForm.get('visibility').invalid && (listForm.get('visibility').dirty || listForm.get('visibility').touched || formSubmitted)" class="text-danger">
+              Visibility is required
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="description" class="label-tag">Description:</label>
+            <textarea
+              class="form-control input-first"
+              id="description"
+              formControlName="description"
+              rows="3"
+              placeholder="Enter list description"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <hr class="black-line">
+      <div class="row">
+        <div class="col-md-6">
+          <label class="label-add-film">ADD A FILM</label>
+          <input
+            type="text"
+            [(ngModel)]="searchQuery"
+            [ngModelOptions]="{standalone: true}"
+            (input)="searchMovies()"
+            class="input-search"
+            placeholder="Search for a movie..."
+          >
+          <div class="search-results" *ngIf="searchResults.length > 0">
+            <div *ngFor="let movie of searchResults" class="search-result-item" (click)="addMovieToList(movie)">
+              {{ movie.title }} ({{ movie.release_date | date: 'yyyy' }})
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 text-right">
+          <button type="button" class="btn btn-secondary btn-cancel" (click)="cancel()">CANCEL</button>
+          <span style="margin-left: 10px;"></span>
+          <button type="submit" class="btn btn-warning btn-save" [disabled]="listForm.invalid">SAVE</button>
+        </div>
+      </div>
+      <hr class="black-line">
+      <div class="selected-movies-frame">
+        <div *ngIf="selectedMovies.length === 0" class="empty-list-message">The list is empty</div>
+        <div *ngFor="let movie of selectedMovies" class="selected-movie-item">
+          <div class="movie-number">{{ movie.number }}</div>
+          <div class="movie-details">
+            <img [src]="'https://image.tmdb.org/t/p/w92/' + movie.poster_path" alt="{{ movie.title }}" class="movie-poster">
+            <span class="movie-title">{{ movie.title }}</span>
+          </div>
+          <button (click)="removeMovieFromList(movie.id)" class="remove-movie-btn">X</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  

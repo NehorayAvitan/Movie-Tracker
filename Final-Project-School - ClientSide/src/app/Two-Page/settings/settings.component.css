@@ -1,0 +1,123 @@
+.settings {
+  margin-top: 60px;
+}
+
+.account-title {
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.options-bar {
+  margin-top: 30px;
+  position: relative;
+}
+
+.option {
+  margin-right: 20px;
+  cursor: pointer;
+  color: yellow; /* Setting option color to yellow */
+  transition: color 0.3s; /* Adding transition effect for color change */
+}
+
+.option.active {
+  font-weight: bold;
+  color: white; /* Setting active option text color to white */
+}
+
+.option.active {
+  position: relative; /* Ensure proper stacking context for the glow line */
+}
+
+.glow-line {
+  width: 100%;
+  height: 2px; /* Increasing the thickness of the gray line */
+  background-color: gray; /* Setting default line color to gray */
+  position: absolute;
+  bottom: -6px; /* Adjusting the position to be just below the text */
+  left: 0;
+  transform-origin: left; /* Ensuring glow effect starts from left */
+  transition: transform 0.3s ease-out, background-color 0.3s; /* Adding transition effect for transform and background-color */
+}
+
+.option.active::after {
+  content: ''; /* Adding a pseudo-element for the glowing line */
+  position: absolute;
+  width: 100%;
+  height: 2px; /* Setting the height of the white line */
+  background-color: white; /* Setting line color to white when active */
+  top: 22px; /* Positioning the white line below the text */
+  left: 0;
+  transform-origin: left; /* Ensuring glow effect starts from left */
+  transition: height 0.3s ease-out, background-color 0.3s; /* Adding transition effect for height and background-color */
+  z-index: 1; /* Ensuring the white line is below the gray line */
+  opacity: 0; /* Initially hiding the white line */
+}
+
+.option.active::after,
+.option.active:hover::after {
+  opacity: 1; /* Making the white line visible when active or hovered */
+}
+
+.settings-header {
+  color: gray; 
+  margin-top: 30px;
+}
+
+.label-tag {
+  color: white; 
+  margin-top: 5px;
+}
+
+.label-tag + .form-control {
+  margin-top: 1px; /* Adjust spacing between label and input */
+}
+
+.input-username {
+  color: white;
+  background-color: #343a40; 
+  width: 395px;
+}
+
+.input-given-name {
+  color: white;
+  background-color: #343a40; 
+  width: 185px;
+}
+
+.input-family-name {
+  color: white;
+  background-color: #343a40; 
+  width: 185px;
+}
+
+.input-bio
+{
+  color: white;
+  background-color: #343a40; 
+  width: 395px;
+}
+
+
+
+
+
+.input-username:focus,
+.input-given-name:focus,
+.input-family-name:focus,
+.input-bio:focus{
+  color: black;
+  background-color: white;
+}
+
+.btn-yellow {
+  background-color: yellow;
+  color: black;
+  border-color: yellow;
+  font-family: "Arial Black", sans-serif; /* Change "Arial Black" to your desired font */
+  font-size: 15px;
+  font-weight: bold;
+}
+
+
+
+

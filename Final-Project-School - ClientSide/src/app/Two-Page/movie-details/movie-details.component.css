@@ -1,0 +1,148 @@
+.movie-details-container {
+  margin-top: 70px;
+}
+
+.poster-container {
+  text-align: right;
+}
+
+.movie-poster {
+  width: 100%;
+  max-width: 250px; /* Reduce the size of the movie poster */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.details-container {
+  text-align: left;
+  padding-left: 20px; /* Adjust the spacing to move details to the left */
+}
+
+h1 {
+  color: white;
+}
+
+.release-date {
+  font-size: 18px;
+  color: #888;
+  margin: 10px 0;
+}
+
+.director-name {
+  color: white;
+}
+
+.synopsis {
+  color: #888;
+  font-size: 16px;
+  margin-top: 20px;
+  line-height: 1.5;
+  max-width: 100%; /* Make it full width */
+  word-wrap: break-word;
+}
+
+.icon-container {
+  margin-top: 20px;
+  background-color: #888; /* Gray background */
+  padding: 20px;
+  border-radius: 10px;
+  display: flex; /* Add display flex */
+  flex-direction: column; /* Arrange items vertically */
+  align-items: center; /* Center items horizontally */
+  text-align: center;
+}
+
+.icon-row {
+  display: flex;
+  justify-content: space-between; /* Adjust spacing as needed */
+  align-items: center; /* Align items vertically in the center */
+
+}
+
+.icon-item {
+  font-size: 14px;
+  color:#dedede;
+  margin-right: 20px;
+}
+
+.icon-item-p {
+  font-size: 14px;
+  color: #dedede;
+  margin-left: 20px;
+
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 24px;
+  color: #dedede;
+  cursor: pointer;
+}
+
+.icon-button:hover,
+.icon-button:focus {
+  outline: none; 
+  color:white; 
+}
+
+.rating {
+  display: flex;
+  justify-content: center; /* Center the rating stars */
+  margin-top: 10px;
+}
+
+.separator {
+  border: 0;
+  height: 2px;
+  background: black; /* Adjust color as needed */
+  margin: 10px 0;
+  width: 116%; /* Full width minus padding of the container */
+}
+
+.rate-label {
+  text-align: center;
+  font-size: 16px; /* Adjust font size as needed */
+  color: #dedede; /* Adjust color as needed */
+  margin-bottom: 10px;
+}
+
+.rating .star {
+  width: 32px; /* Increase width */
+  height: 32px; /* Increase height */
+  cursor: pointer;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: brightness(0) saturate(100%) invert(74%) sepia(83%) saturate(476%) hue-rotate(359deg) brightness(107%) contrast(103%);
+  margin: 0 2px;
+}
+
+
+.rating .star.full {
+  background-image: url('/assets/star-fill.svg');
+}
+
+.rating .star.half {
+  background-image: url('/assets/star-half.svg');
+}
+
+.rating .star.empty {
+  background-image: url('/assets/star.svg');
+}
+
+.add-to-lists-button {
+  background-color:#888; 
+  color: #dedede; 
+  border: none;
+  font-size: 24px; 
+  text-align: center;
+  cursor: pointer;
+  transition: color 0.3s ease; 
+}
+
+.add-to-lists-button:hover {
+  color: white; 
+}
