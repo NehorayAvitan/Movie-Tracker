@@ -1,0 +1,48 @@
+<div class="content">
+  <div class="container movie-details-container" *ngIf="movieDetails">
+    <div class="row">
+      <div class="col-md-3 poster-container">
+        <img [src]="getPosterUrl(movieDetails.poster_path)" alt="Movie Poster" class="movie-poster">
+      </div>
+      <div class="col-md-6 details-container">
+        <h1 [ngStyle]="{'color': 'white'}">{{ movieDetails.title }}</h1>
+        <p class="release-date">
+          <span [ngStyle]="{'color': 'white'}">{{ movieDetails.release_date | date: 'yyyy' }}</span> Directed by <span class="director-name">{{ movieDetails.directors?.join(', ') || 'Unknown' }}</span>
+        </p>
+        <p class="synopsis">{{ movieDetails.overview }}</p>
+      </div>
+      <div class="col-md-3 icon-container gray-rectangle">
+        <div class="icon-row">
+          <div class="icon-item">
+            <button type="button" class="icon-button" title="View" (click)="addWatched(movieDetails.id, 0)">
+              <i id="watched-icon-{{ movieDetails.id }}" class="glyphicon glyphicon-eye-open" [style.color]="isMovieWatched(movieDetails.id) ? 'yellow' : ''"></i>
+            </button>
+            <p>Watch</p>
+          </div>
+          <div class="icon-item-p">
+            <button type="button" class="icon-button" title="Add" (click)="addWatchList(movieDetails.id)">
+              <i id="watchList-icon-{{movieDetails.id}}" class="glyphicon glyphicon-sunglasses" [style.color]="isMovieWatchList(movieDetails.id) ? 'purple' : ''"></i>
+            </button>
+            <p>Watchlist</p>
+          </div>
+        </div>
+        
+        <hr class="separator">
+        <p class="rate-label">Rate</p>
+        <div class="rating">
+        <ng-container *ngFor="let star of [0, 1, 2, 3, 4]; let i = index">
+        <div class="star" [ngClass]="getStarClass(i)" (click)="rateMovie($event, movieDetails.id, i)"></div>
+        </ng-container>
+        </div>
+
+        <hr class="separator" [ngStyle]="{'margin-top': '15px'}">
+        <button class="add-to-lists-button">Add to lists...</button>
+
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!movieDetails">
+    <p>Loading movie details...</p>
+  </div>
+</div>

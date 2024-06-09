@@ -1,0 +1,77 @@
+  .container-data {
+    color: white;
+  }
+  
+  .movie-poster-container {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #ddd; /* Add a border */
+    border-radius: 8px; /* Add border radius for a rounded frame */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a shadow effect */
+  }
+  
+  .movie-poster-container:hover .movie-title,
+  .movie-poster-container:hover .movie-options {
+    visibility: visible;
+  }
+  
+  .movie-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    color: yellow; /* Yellow text color */
+    text-align: center;
+    padding: 5px;
+    margin: 0;
+    visibility: hidden; /* Initially hidden */
+    transition: visibility 0.3s; /* Smooth transition */
+  }
+  
+  .movie-options {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    padding: 5px;
+    position: absolute;
+    bottom: 10px; /* Adjust bottom position as needed */
+    right: 90px;
+    transform: translateX(50%);
+    visibility: hidden; /* Initially hidden */
+    display: flex; /* Use flexbox */
+  }
+  
+  .movie-options .btn {
+    margin: 0 5px; /* Add some margin between the buttons */
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+  
+  .movie-options .btn i {
+    color: white;
+  }
+  
+  .movie-options .btn:first-child {
+    margin-left: 0; /* Remove right margin for the first button */
+  }
+  
+  .movie-poster {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s; /* Smooth transition */
+  }
+  
+  .movie-poster-container:hover .movie-poster {
+    transform: scale(1.1); /* Enlarge the poster on hover */
+  }
+  
+  .row {
+    margin-bottom: 15px; 
+  }
+
+  .removed .movie-poster {
+    filter: brightness(40%); /* Darkens the image */
+  }
+  
+  
+  

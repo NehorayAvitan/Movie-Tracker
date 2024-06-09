@@ -1,0 +1,52 @@
+<div class="row user-info">
+    <div class="col-md-2 text-center">
+      <img src="assets/cinema.png" alt="Profile Picture" class="img-fluid rounded-circle profile-picture">
+    </div>
+    <div class="col-md-5">
+      <h2 class="username">{{ getProfileName() }}</h2>
+      <div *ngIf="user.location || user.website" class="location-website">
+        <p *ngIf="user.location" class="location">
+          <span class="glyphicon glyphicon-map-marker"></span> {{ user.location }}
+        </p>
+        <p *ngIf="user.website" class="website">
+          <a [href]="'http://' + user.website" target="_blank">
+            <span class="glyphicon glyphicon-globe"></span> {{ user.website }}
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <button class="btn btn-dark btn-custom" [routerLink]="'/settings'">EDIT PROFILE</button>
+    </div>
+    <div class="col-md-2">
+      <div class="movie-stats">
+        <h4 class="stats-number">{{ userStats.moviesWatched }}</h4>
+        <h6 class="stats-name">Films</h6>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="movie-stats">
+        <h4 class="stats-number">{{ userStats.watchList }}</h4>
+        <h6 class="stats-name">Watchlist</h6>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="movie-stats">
+        <h4 class="stats-number">{{ userStats.lists }}</h4>
+        <h6 class="stats-name">Lists</h6>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+        <div class="toolbar">
+            <ul class="nav nav-pills">
+              <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a [routerLink]="'/profile'">Profile</a></li>
+              <li routerLinkActive="active"><a [routerLink]="'/profile/activity'">Activity</a></li>
+              <li routerLinkActive="active"><a [routerLink]="'/profile/films'">Films</a></li>
+              <li routerLinkActive="active"><a [routerLink]="'/profile/watchlist'">Watchlist</a></li>
+              <li routerLinkActive="active"><a [routerLink]="'/profile/lists'">Lists</a></li>
+            </ul>
+          </div>          
+    </div>
+  </div>

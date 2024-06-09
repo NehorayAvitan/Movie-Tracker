@@ -1,0 +1,50 @@
+<div class="content">
+  <div class="profile container">
+    <app-header-profile></app-header-profile>
+    <div class="container-data">
+      <div *ngIf="isMainProfileView()">
+        <div class="row">
+          <div class="col-md-8">
+            <p class="favorite-films-title">Favorite Films</p>
+            <hr class="favorite-films-line">
+            <div class="favorite-films-posters">
+              <div *ngFor="let film of favoriteFilms; let i = index" class="film-poster">
+                <img *ngIf="film.poster_path" [src]="'https://image.tmdb.org/t/p/w500/' + film.poster_path" alt="{{film.title}}">
+                <p *ngIf="film.title" class="film-title">{{ film.title }} ({{ film.release_date | date:'yyyy' }})</p>
+                <div class="film-options" *ngIf="film.title">
+                  <button type="button" class="btn btn-default" title="View" (click)="addWatched(film.id, 0)">
+                    <i  id="watched-icon-{{ film.id }}" class="glyphicon glyphicon-eye-open" [style.color]="isMovieWatched(film.id) ? 'yellow' : ''"></i></button>
+                  <button type="button" class="btn btn-default" title="Add">
+                    <i id="watchList-icon-{{film.id}}" class="glyphicon glyphicon-sunglasses" [style.color]="isMovieWatchList(film.id) ? 'purple' : ''"></i></button>
+                    <button type="button" class="btn btn-default" title="Options" (click)="selectMovie(film)">
+                      <i class="glyphicon glyphicon-option-horizontal"></i>
+                    </button>                      
+                  </div>
+
+                  <app-film-options-dropdown 
+                  *ngIf="selectedMovie === movie"
+                  [movie]="movie"
+                  [selectedMovieRating]="getMovieRating(movie.id)"
+                  (closeOptions)="closeOptions()"
+                  (addToList)="openAddMovieModal($event)"
+                  (refreshWatchedMovies)="getWatchedMovies()">
+                </app-film-options-dropdown>
+          
+                <app-add-movie-to-list-modal *ngIf="showAddMovieModal" [movie]="currentMovie" (closeModalEvent)="closeAddMovieModal()"></app-add-movie-to-list-modal>
+                  
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-4">
+            <p class="bio-title">BIO</p>
+            <hr class="bio-line">
+            <p class="bio-content">{{user.bio}}</p>
+          </div>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+</div>

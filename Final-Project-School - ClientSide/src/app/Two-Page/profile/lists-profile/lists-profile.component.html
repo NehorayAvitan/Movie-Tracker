@@ -1,0 +1,18 @@
+<div class="lists-container">
+  <div class="list-item" *ngFor="let list of lists">
+    <div class="list-posters">
+      <ng-container *ngFor="let posterUrl of list.posters; let i = index">
+        <img *ngIf="posterUrl" [src]="posterUrl" alt="" class="poster-image" [style.left.px]="i * 70" [style.zIndex]="100 - i"/>
+        <div *ngIf="!posterUrl" class="poster-placeholder" [style.left.px]="i * 70" [style.zIndex]="100 - i"></div>
+      </ng-container>
+    </div>
+    <div class="list-details">
+      <a class="list-title" (click)="GoToList(list)">{{ list.listName }}</a>
+      <p>{{ list.description }}</p>
+      <p>{{ getNumberOfMovies(list) }} films</p>
+    </div>
+  </div>
+  <div class="add-list-container">
+    <button class="add-list-button" [routerLink]="['/list/new']">Start a new list...</button>
+  </div>
+</div>

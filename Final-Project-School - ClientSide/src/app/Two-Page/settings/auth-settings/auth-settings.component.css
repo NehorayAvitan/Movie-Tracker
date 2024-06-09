@@ -1,0 +1,32 @@
+  .settings-header {
+    color: gray; 
+    margin-top: 30px;
+  }
+
+  .label-tag {
+    color: white; 
+    margin-top: 5px;
+  }
+  
+  
+  .input-tag {
+    color: white;
+    background-color: #343a40; 
+    width: 410px;
+  }
+
+  .input-tag:focus{
+    color: black;
+    background-color: white;
+  
+
+  }
+
+  .btn-yellow {
+    background-color: yellow;
+    color: black;
+    border-color: yellow;
+    font-family: "Arial Black", sans-serif; /* Change "Arial Black" to your desired font */
+    font-size: 15px;
+    font-weight: bold;
+  }

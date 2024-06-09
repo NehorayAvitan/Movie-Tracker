@@ -1,0 +1,42 @@
+<body class="content dark-background">
+
+
+  <div class="content">
+    <div class="home container">
+      <div class="row user-info">
+        <div class="col-md-12">
+          <p class="welcome-message">{{ welcomeMessage }}</p>
+          <div class="row">
+            <div class="col-md-2 col-sm-4 col-xs-6 mb-4" *ngFor="let movie of movies">
+              <a [routerLink]="" class="movie-link">
+                <div class="movie-poster-container">
+                  <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" alt="Movie Poster" class="movie-poster">
+                  <p class="movie-title">{{ movie.title }} ({{ movie.release_date | date:'yyyy' }})</p>
+                  <div class="movie-options">
+                    <button type="button" class="btn btn-default" title="View" (click)="addWatched(movie.id)">
+                      <i  id="watched-icon-{{ movie.id }}" class="glyphicon glyphicon-eye-open" [style.color]="isMovieWatched(movie.id) ? 'yellow' : ''"></i></button>
+                    <button type="button" class="btn btn-default" title="Add" (click)="addWatchList(movie.id)">
+                      <i id="watchList-icon-{{movie.id}}" class="glyphicon glyphicon-sunglasses" [style.color]="isMovieWatchList(movie.id) ? 'purple' : ''"></i></button>
+                      <button type="button" class="btn btn-default" title="Options" (click)="selectMovie(movie)">
+                        <i class="glyphicon glyphicon-option-horizontal"></i>
+                      </button>                  </div>
+                </div>
+              </a>
+        <app-film-options-dropdown 
+        *ngIf="selectedMovie === movie"
+        [movie]="movie"
+        [selectedMovieRating]="getMovieRating(movie.id)"
+        (closeOptions)="closeOptions()"
+        (addToList)="openAddMovieModal($event)"
+        (refreshWatchedMovies)="getWatchedMovies()">
+      </app-film-options-dropdown>
+
+      <app-add-movie-to-list-modal *ngIf="showAddMovieModal" [movie]="currentMovie" (closeModalEvent)="closeAddMovieModal()"></app-add-movie-to-list-modal>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>

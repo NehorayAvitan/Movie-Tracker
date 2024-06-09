@@ -1,0 +1,14 @@
+.logo {
+    height: 30px; 
+    margin-right: 10px; 
+  }
+  .navbar-brand {
+    display: inline-flex; 
+    align-items: center; 
+  }
+  
+  .brand-name {
+    font-size: 24px; 
+    color: yellow;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }

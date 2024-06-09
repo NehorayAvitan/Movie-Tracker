@@ -1,0 +1,14 @@
+<div class="movie-options-dropdown">
+    <div class="dropdown-content">
+      <div class="rating">
+        <ng-container *ngFor="let star of [0, 1, 2, 3, 4]; let i = index">
+          <div class="star" [ngClass]="getStarClass(i)" (click)="rateMovie($event, movie.id, i)"></div>
+        </ng-container>
+      </div>
+      
+            
+      <button class="dropdown-item" (click)="addMovieToList(movie)">Add to List</button>
+      <button class="dropdown-item" (click)="goToMovie(movie)">Go to Film</button>
+      <button class="dropdown-item" (click)="closeDropdown()">Close</button>
+    </div>
+  </div>

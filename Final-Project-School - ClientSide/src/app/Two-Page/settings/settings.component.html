@@ -1,0 +1,91 @@
+<div class="content">
+  <div class="settings container">
+    <app-header-settings></app-header-settings>
+    <div *ngIf="isMainProfileView()">
+      <div class="row">
+        <div class="col-xs-12">
+          <h3 class="settings-header">Profile</h3>
+          <form [formGroup]="settingsForm" (ngSubmit)="saveChanges()">
+            <div class="form-group">
+              <label for="username" class="control-label label-tag">Username:</label>
+              <input type="text" class="form-control input-username" id="username" formControlName="username">
+              <div *ngIf="settingsForm.get('username').invalid && (settingsForm.get('username').dirty || settingsForm.get('username').touched)" class="text-danger">
+                <div *ngIf="settingsForm.get('username').errors.required">Username is required.</div>
+                <div *ngIf="settingsForm.get('username').errors.minlength">Username must be at least 3 characters long.</div>
+              </div>
+            </div>
+            
+          
+            
+            <div class="row">
+              <div class="col-xs-6">
+                <div class="form-group">
+                  <label for="given-name" class="control-label label-tag">Given name:</label>
+                  <input type="text" class="form-control input-given-name" id="given-name" formControlName="name">
+                  <div *ngIf="settingsForm.get('name').invalid && (settingsForm.get('name').dirty || settingsForm.get('name').touched)" class="text-danger">
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="form-group" style="margin-left: -375px;">
+                  <label for="family-name" class="control-label label-tag">Family name:</label>
+                  <input type="text" class="form-control input-family-name" id="family-name" formControlName="familyName">
+                  <div *ngIf="settingsForm.get('familyName').invalid && (settingsForm.get('familyName').dirty || settingsForm.get('familyName').touched)" class="text-danger">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6">
+                <div class="form-group">
+                  <label for="email" class="control-label label-tag">Email address:</label>
+                  <input type="email" class="form-control input-username" id="email" formControlName="email">
+                  <div *ngIf="settingsForm.get('email').invalid && (settingsForm.get('email').dirty || settingsForm.get('email').touched)" class="text-danger">
+                    <div *ngIf="settingsForm.get('email').errors.required">Email is required.</div>
+                    <div *ngIf="settingsForm.get('email').errors.email">Invalid email format.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6">
+                <div class="form-group">
+                  <label for="location" class="control-label label-tag">Location:</label>
+                  <input type="text" class="form-control input-given-name" id="location" formControlName="location">
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="form-group " style="margin-left: -375px;">
+                  <label for="website" class="control-label label-tag">Website:</label>
+                  <input type="text" class="form-control input-family-name"  id="website" formControlName="website">
+                  <div *ngIf="settingsForm.get('website').invalid && (settingsForm.get('website').dirty || settingsForm.get('website').touched)" class="text-danger">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="bio" class="control-label label-tag">Bio:</label>
+              <textarea id="bio" class="form-control input-bio" formControlName="bio" rows="4"></textarea>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12">
+                <button type="submit" class="btn btn-warning btn-yellow" [disabled]="settingsForm.invalid">SAVE CHANGES</button>
+              </div>
+            </div>
+
+            <div class="alert" #notificationElement [ngClass]="{ 'alert-success': success, 'alert-danger': error }" *ngIf="notificationMessage">
+              {{ notificationMessage }}
+            </div>
+          </form>
+        </div>
+
+       
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

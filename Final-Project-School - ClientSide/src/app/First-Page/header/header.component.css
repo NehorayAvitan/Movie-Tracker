@@ -1,0 +1,19 @@
+.btn-big {
+    font-size: 18px; 
+  }
+
+  .brand-name {
+    font-size: 24px; 
+    color: yellow;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .logo {
+    height: 30px; /* Adjust the height of the logo as needed */
+    margin-right: 10px; /* Add some margin between the logo and the app name */
+  }
+
+  .navbar-brand {
+    display: inline-flex; /* Display the navbar-brand inline with flexbox */
+    align-items: center; /* Align items vertically in the center */
+  }

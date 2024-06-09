@@ -1,0 +1,14 @@
+<div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <h2>Add '{{ movie?.title }}' to Lists</h2>
+      <hr class="divider"/>
+      <div *ngIf="userLists.length === 0">No lists found.</div>
+      <div *ngFor="let list of userLists" class="list-item" (click)="selectList(list)">
+        <span>{{ list.listName }}</span>
+        <span>{{ getNumberOfMovies(list) }} movies</span>
+      </div>
+      <button class="add-button" [disabled]="!selectedList" (click)="addMovieToList()">Add to {{ selectedList?.name }}</button>
+      <button class="close-button" (click)="closeModal()">Close</button>
+    </div>
+  </div>
+  

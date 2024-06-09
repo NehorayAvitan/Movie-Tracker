@@ -1,0 +1,11 @@
+<app-header *ngIf="loadedOption !== 'Home'" (optionSelected)="onNavigate($event)"></app-header>
+
+<div class="container">
+  <div class="row"> 
+      <app-login *ngIf="loadedOption === 'Login'" (loginSuccess)="onNavigate('Home', $event)"></app-login>
+      <app-sign-up *ngIf="loadedOption === 'Sign-up'" (signUpSuccess)="onNavigate('Home', $event )"></app-sign-up>
+  </div>
+</div>
+
+<app-main-navbar *ngIf="loadedOption === 'Home'"></app-main-navbar>
+<router-outlet *ngIf="loadedOption === 'Home'"></router-outlet>
